@@ -7,7 +7,7 @@ function tampilkanSemuaMenu() {
         // untuk mengambil isi data menu
         let menu = data.menu;
 
-        $('#daftar-menu').empty();
+        // $('#daftar-menu').empty();
         // perulangan pada JQUERY, looping terhadap object "$.each()"
         $.each(menu, function (i, data) {
             $('#daftar-menu').append('<div class="col-md-4 mb-4 "><div class="card"><img src="img/pizza/' + data.gambar + '"class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + data.nama + '</h5><p class="card-text">' + data.deskripsi + '</p><h5 class="card-title">Rp.' + data.harga + '</h5><a href="#" class="btn btn-primary">Pesan Sekarang</a></div></div></div>');
@@ -29,11 +29,11 @@ $('.nav-link').on('click', function () {
 
     // $(this).html() -> ambil htmlnya (yang sedang diklik)
     let kategori = $(this).html();
-
     // ambil element html kemudian diganti dengan kategori
     $('h1').html(kategori);
 
     if (kategori == 'All Menu') {
+        $('#daftar-menu').html('');
         tampilkanSemuaMenu();
         return;
     }
@@ -57,6 +57,4 @@ $('.nav-link').on('click', function () {
         kemudian menggantinya dengan konten */
         $('#daftar-menu').html(content);
     });
-
-
 });
